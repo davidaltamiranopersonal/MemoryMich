@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Escape Room - Pistas</title>
+  <style>
+    .hidden { display: none; }
+    .box { margin-bottom: 20px; }
+  </style>
+</head>
+<body>
+  <h1>Prueba tu respuesta</h1>
+
+  <div class="box">
+    <p>¿Cuál es la capital de Francia?</p>
+    <input type="text" id="input1">
+    <button onclick="checkAnswer('input1', 'parís', 'img1')">Comprobar</button>
+    <img id="img1" src="https://via.placeholder.com/200x100?text=¡Correcto!" class="hidden">
+  </div>
+
+  <div class="box">
+    <p>Escribe el código secreto del mapa:</p>
+    <input type="text" id="input2">
+    <button onclick="checkAnswer('input2', 'alpha42', 'img2')">Comprobar</button>
+    <img id="img2" src="https://via.placeholder.com/200x100?text=Pista+2+desbloqueada" class="hidden">
+  </div>
+
+  <script>
+    function checkAnswer(inputId, correctAnswer, imageId) {
+      const input = document.getElementById(inputId).value.trim().toLowerCase();
+      if (input === correctAnswer.toLowerCase()) {
+        document.getElementById(imageId).classList.remove('hidden');
+      } else {
+        alert("Respuesta incorrecta");
+      }
+    }
+  </script>
+</body>
+</html>
